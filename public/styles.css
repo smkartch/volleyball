@@ -1,16 +1,21 @@
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  background: #fff;
+  background-image: url("images/volleyball-background.jpg");
   padding: 0px;
   margin: 0px;
 }
+
+#champTitle {
+  text-align: center;
+}
+
 
 /* Header */
 .header {
   display: flex;
   padding: 20px 100px 0px 100px;
-  background-color: #5BDEFF;
+  background-color: #9932CC;
   color: #fff;
 }
 
@@ -19,17 +24,31 @@ body {
 }
 
 .title h1, .title h2 {
-  margin: 0px;
+  margin: 5px;
 }
 
-.title h1 {
-  border-top: 1px solid #000;
+#container {
+   background: rgba(255, 255, 255, 0.9);
+}
+
+.column {
+ 
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Footer */
 .footer {
   height: 50px;
   padding: 20px 100px 0px 100px;
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .footer a {
@@ -129,6 +148,11 @@ html {
 
 .image img {
   width: 100%;
+}
+
+#volleyball {
+  width: 50px;
+  height: 50px;
 }
 
 /* Masonry on large screens */

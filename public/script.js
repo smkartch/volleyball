@@ -5,6 +5,9 @@ var app = new Vue({
   el: '#app',
   data: {
     items: [],
+    author: "",
+    comment: "",
+    addItem: null,
   },
   methods:{
     async getItems() {
@@ -16,6 +19,19 @@ var app = new Vue({
         console.log(error);
       }
     },
+    async upload() {
+      try {
+        let r2 = await axios.post('/api/items', {
+          author: this.author,
+          comment: this.comment,
+        });
+        this.addItem = r2.data;
+      } catch (error) {
+        console.log(error);
+      }
+      this.getItems();
+    },
+    
   },
   created() {
     this.getItems();

@@ -12,47 +12,24 @@ app.use(express.static('public'));
 const mongoose = require('mongoose');
 
 // connect to the database
-mongoose.connect('mongodb://localhost:27017/museum', {
+mongoose.connect('mongodb://localhost:27017/volleyball', {
   useNewUrlParser: true
 });
 
 // Create a scheme for items in the museum: a title and a path to an image.
 const itemSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-  path: String,
+  author: String,
+  comment: String
 });
 
 // Create a model for items in the museum.
 const Item = mongoose.model('Item', itemSchema);
 
-// Configure multer so that it will upload to '/public/images'
-const multer = require('multer')
-const upload = multer({
-  dest: './public/images/',
-  limits: {
-    fileSize: 10000000
-  }
-});
-
-// Upload a photo. Uses the multer middleware for the upload and then returns
-// the path where the photo is stored in the file system.
-app.post('/api/photos', upload.single('photo'), async (req, res) => {
-  // Just a safety check
-  if (!req.file) {
-    return res.sendStatus(400);
-  }
-  res.send({
-    path: "/images/" + req.file.filename
-  });
-});
-
 // Create a new item in the museum: takes a title and a path to an image.
 app.post('/api/items', async (req, res) => {
   const item = new Item({
-    title: req.body.title,
-    description: req.body.description,
-    path: req.body.path,
+    author: req.body.author,
+    comment: req.body.comment,
   });
   try {
     await item.save();
