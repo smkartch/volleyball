@@ -14,6 +14,7 @@ var app = new Vue({
       try {
         let response = await axios.get("/api/items");
         this.items = response.data;
+        this.items.reverse();
         return true;
       } catch (error) {
         console.log(error);

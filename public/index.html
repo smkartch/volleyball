@@ -20,7 +20,7 @@
   <div class="row">
   <div class="column" id="about">
   <div id="app" class="content">
-    <h3>Add a Comment</h3>
+    <h2>Add a Comment</h2>
       <form v-on:submit.prevent="upload">
         <input v-model="author" placeholder="Name"></p>
         <textarea v-model="comment"></textarea>
@@ -32,16 +32,35 @@
         <p>{{item.comment}}</p>
         <p><i>-- {{item.author}}</i></p>
       </div>
-    <section class="image-gallery">
-      <div class="image" v-for="item in items">
-        <h2>{{item.title}}</h2>
-        <p>{{item.description}}</p>
-        <img :src="item.path" />
-      </div>
+  
   </div>
   </div>
   <div class="column">
     <h2 id="champTitle">Past Championships</h2>
+    
+    <p>
+      <a href = "https://www.ncaa.com/brackets/volleyball-women/d1/2018">
+        <img src = "/images/ncaa2018.jpg" id = "2018">
+      </a>
+    </p>
+    <p>
+      <a href = "https://www.ncaa.com/brackets/volleyball-women/d1/2017">
+        <img src = "/images/ncaa2017.png" id = "2017">
+      </a> 
+    </p>
+    <p>
+      <a href = "https://www.ncaa.com/brackets/volleyball-women/d1/2016">
+        <img src = "/images/ncaa2016.jpg" id = "2016">
+      </a>
+    </p>
+    <p>
+    
+       <a href = "https://www.ncaa.com/brackets/volleyball-women/d1/2015">  
+        <img src = "/images/ncaa2015.png" id = "2015">
+      </a>
+    </p>
+    
+
   </div>
   </div>
   </div>
